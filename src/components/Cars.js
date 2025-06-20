@@ -76,7 +76,7 @@ export default function Cars(props) {
                                 <TableCell>{car.status}</TableCell>
                                 <TableCell>
                                     {
-                                        props.page == 'profile' ?
+                                        props.page === 'profile' ?
                                         car.username :
                                         <Link
                                             to={'/' + car.username}

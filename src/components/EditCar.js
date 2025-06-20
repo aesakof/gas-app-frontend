@@ -1,7 +1,7 @@
 import React, { useEffect, useState, useContext } from 'react';
 import axiosInstance from '../axios';
 import { useHistory, useParams } from 'react-router-dom';
-import { Context } from '../Context';
+// import { Context } from '../Context';
 
 import { range } from '../helpers';
 //MaterialUI
