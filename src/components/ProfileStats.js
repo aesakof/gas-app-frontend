@@ -101,6 +101,7 @@ export default function ProfileStats(props) {
     // API calls for individual car data
     useEffect(() => {
         axiosInstance.get('/cars/?user__user_name=' + props.user).then((res) => {
+            // eslint-disable-next-line
             res.data.map( (car) => {
                 Promise.all([
                     axiosInstance.get('/fillups/?user__user_name=' + props.user + '&car=' + car.id),

@@ -46,8 +46,8 @@ export default function Profile() {
     const { user } = useParams();
     let { path, url } = useRouteMatch();
 
-    const [cars, setCars] = useState(null)
-    const [fillups, setFillups] = useState(null)
+    // const [cars, setCars] = useState(null)
+    // const [fillups, setFillups] = useState(null)
     const { username } = useContext(Context);
 
     const locationToValue = (location) => {
