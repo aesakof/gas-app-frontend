@@ -1,4 +1,4 @@
-import React, { useEffect, useState, useContext } from 'react';
+import React, { useEffect, useState } from 'react';
 import axiosInstance from '../axios';
 import { useHistory, useParams } from 'react-router-dom';
 // import { Context } from '../Context';
@@ -67,7 +67,7 @@ export default function EditCar() {
                 'status': res.data.status,
             });
         }); 
-    }, []);
+    }, [formData, id]);
 
 	const handleChange = (e) => {
         updateFormData({

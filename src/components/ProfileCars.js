@@ -10,7 +10,7 @@ export default function AllCars(props) {
         axiosInstance.get('/cars/?user__user_name=' + props.user).then((res) => {
             setCars(res.data)
         });
-    }, [])
+    }, [props.user])
 
     return (
         <>

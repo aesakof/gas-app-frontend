@@ -86,7 +86,7 @@ export default function Header() {
         if(username === null && localStorage.getItem('username') !== null) {
             setUsername(localStorage.getItem('username'))
         }
-    }, [username]);
+    }, [username, setUsername]);
 
     useEffect(() => {
         const setResponsiveness = () => {

@@ -79,7 +79,7 @@ export default function EditFillup() {
             });
             setCars(res2.data);
         });
-    }, [username]);
+    }, [username, formData, id]);
 
 	const handleChange = (e) => {
         updateFormData({

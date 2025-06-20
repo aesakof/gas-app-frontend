@@ -11,7 +11,7 @@ export default function AllFillups(props) {
             console.log(res.data)
             setFillups(res.data)
         });
-    }, [])
+    }, [props.user])
 
     return (
         <>

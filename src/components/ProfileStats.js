@@ -1,8 +1,8 @@
-import { React, useEffect, useState, useContext } from 'react';
+import { React, useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
 
 import axiosInstance from '../axios';
-import { Context } from "../Context";
+// import { Context } from "../Context";
 import { LineChart, Line, CartesianGrid, XAxis, YAxis, Tooltip, ResponsiveContainer } from 'recharts';
 
 import { withStyles } from '@material-ui/core/styles';
@@ -96,7 +96,7 @@ export default function ProfileStats(props) {
             setUserStats(res.data);
         });
 
-    }, []);
+    }, [props.user]);
 
     // API calls for individual car data
     useEffect(() => {
@@ -121,7 +121,7 @@ export default function ProfileStats(props) {
                 })
             })
         });
-    }, []);
+    }, [props.user]);
 
     // useEffect(() => {
     //     axiosInstance.get('/fillups/?user__user_name=' + props.user).then((res) => {

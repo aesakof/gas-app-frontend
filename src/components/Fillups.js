@@ -1,5 +1,5 @@
-import React, { useState, useEffect, useContext } from "react"
-import axiosInstance from '../axios';
+import React, { useContext } from "react"
+// import axiosInstance from '../axios';
 import { Context } from "../Context";
 import { Link } from "react-router-dom"
 
@@ -77,7 +77,7 @@ export default function Fillups(props) {
                                 <TableCell>{fillup.mpg}</TableCell>
                                 <TableCell>
                                     {
-                                        props.page == 'profile' ?
+                                        props.page === 'profile' ?
                                         fillup.username :
                                         <Link
                                             to={'/' + fillup.username}
