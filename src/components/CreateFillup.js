@@ -17,8 +17,7 @@ import Select from '@material-ui/core/Select';
 import 'date-fns';
 import DateFnsUtils from '@date-io/date-fns';
 import {
-  MuiPickersUtilsProvider,
-  KeyboardDatePicker,
+  MuiPickersUtilsProvider
 } from '@material-ui/pickers';
 import Moment from 'moment';
 import Paper from '@material-ui/core/Paper';
@@ -45,7 +44,8 @@ export default function CreateFillup() {
 
     const history = useHistory();
 	const initialFormData = {
-        date: Moment().format('YYYY-MM-DD 12:00:00'),
+        // date: new Date(),
+        date: Moment().format('YYYY-MM-DD'),
         fuel_grade: '',
         price_per_gallon: '',
         trip_distance: '',
@@ -94,7 +94,7 @@ export default function CreateFillup() {
 		e.preventDefault();
 		axiosInstance
 			.post('/fillups/', {
-                date: Moment(formData.date).format('yyyy-MM-DD'),
+                date: Moment(formData.date).format('YYYY-MM-DD'),
                 fuel_grade: formData.fuel_grade,
                 price_per_gallon: parseFloat(formData.price_per_gallon),
                 trip_distance: parseFloat(formData.trip_distance),
@@ -120,7 +120,8 @@ export default function CreateFillup() {
 						<Grid item xs={12}>
                             <MuiPickersUtilsProvider utils={DateFnsUtils}>
                                 <Grid container justifyContent="space-around">
-                                    <KeyboardDatePicker
+                                    {console.log(formData.date)}
+                                    {/* <KeyboardDatePicker
                                         fullWidth
                                         disableToolbar
                                         inputVariant="outlined"
@@ -129,11 +130,23 @@ export default function CreateFillup() {
                                         id="date-picker-inline"
                                         label="Date of Fillup"
                                         name="date"
-                                        value={formData.date}
+                                        value={formData.date || null}
                                         onChange={handleDateChange}
                                         KeyboardButtonProps={{
                                             'aria-label': 'change date',
-                                    }}
+                                        }}
+                                    /> */}
+                                    <TextField
+                                        fullWidth
+                                        variant="outlined"
+                                        margin="normal"
+                                        type="date"
+                                        label="Date of Fillup"
+                                        name="date"
+                                        value={Moment(formData.date).format('YYYY-MM-DD')}
+                                        onChange={(e) =>
+                                            handleDateChange(new Date(e.target.value))
+                                        }
                                     />
                                 </Grid>
                             </MuiPickersUtilsProvider>

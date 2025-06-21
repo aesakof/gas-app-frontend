@@ -17,8 +17,7 @@ import Select from '@material-ui/core/Select';
 import 'date-fns';
 import DateFnsUtils from '@date-io/date-fns';
 import {
-  MuiPickersUtilsProvider,
-  KeyboardDatePicker,
+  MuiPickersUtilsProvider
 } from '@material-ui/pickers';
 import Moment from 'moment';
 import Paper from '@material-ui/core/Paper';
@@ -70,7 +69,7 @@ export default function EditFillup() {
         ]).then(function ([res1, res2]) {
             updateFormData({
                 ...formData,
-                'date': Moment(res1.data.date).format('YYYY-MM-DD 12:00:00'),
+                'date': Moment(res1.data.date).format('YYYY-MM-DD'),
                 'fuel_grade': res1.data.fuel_grade,
                 'price_per_gallon': res1.data.price_per_gallon,
                 'trip_distance': res1.data.trip_distance,
@@ -79,7 +78,8 @@ export default function EditFillup() {
             });
             setCars(res2.data);
         });
-    }, [username, formData, id]);
+    // eslint-disable-next-line
+    }, [username]);
 
 	const handleChange = (e) => {
         updateFormData({
@@ -134,7 +134,7 @@ export default function EditFillup() {
 						<Grid item xs={12}>
                             <MuiPickersUtilsProvider utils={DateFnsUtils}>
                                 <Grid container justifyContent="space-around">
-                                    <KeyboardDatePicker
+                                    {/* <KeyboardDatePicker
                                         fullWidth
                                         disableToolbar
                                         inputVariant="outlined"
@@ -148,6 +148,18 @@ export default function EditFillup() {
                                         KeyboardButtonProps={{
                                             'aria-label': 'change date',
                                     }}
+                                    /> */}
+                                    <TextField
+                                        fullWidth
+                                        variant="outlined"
+                                        margin="normal"
+                                        type="date"
+                                        label="Date of Fillup"
+                                        name="date"
+                                        value={Moment(formData.date).format('YYYY-MM-DD')}
+                                        onChange={(e) =>
+                                            handleDateChange(new Date(e.target.value))
+                                        }
                                     />
                                 </Grid>
                             </MuiPickersUtilsProvider>

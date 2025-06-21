@@ -67,7 +67,8 @@ export default function EditCar() {
                 'status': res.data.status,
             });
         }); 
-    }, [formData, id]);
+    // eslint-disable-next-line
+    }, []);
 
 	const handleChange = (e) => {
         updateFormData({
