@@ -32,7 +32,7 @@ axiosInstance.interceptors.response.use(
 		}
 
         if (error.response.status === 404 || error.response.status === 403) {
-            window.location.href = '/not'
+            window.location.href = '/404'
         }
 
         if (

@@ -30,6 +30,7 @@ function App() {
                 <Route exact path="/register" component={Register} />
                 <Route exact path="/login" component={Login} />
                 <Route exact path="/logout" component={Logout} />
+                <Route exact path="/404" component={PageNotFound} />
 
                 <Route exact path="/cars" component={AllCars} />
                 <Route exact path="/cars/register" component={CreateCar} />
